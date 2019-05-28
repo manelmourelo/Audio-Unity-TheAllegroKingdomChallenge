@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     public AudioClip scrollSound;
     public AudioClip selectSound;
     private AudioSource source;
+    public float vol = 1F;
 
     public Canvas ThisCanvas;
     public CanvasGroup canvasGroup;
@@ -720,7 +721,7 @@ public class Inventory : MonoBehaviour
         {
             canvasGroup.interactable = true;
             // HINT: You might want to play the inventory opened sound here
-            source.PlayOneShot(openSound, 1F);
+            source.PlayOneShot(openSound, vol);
             InventoryIsOut = true;
             if (EventSystem.current != null)
             {
@@ -743,6 +744,7 @@ public class Inventory : MonoBehaviour
         {
             canvasGroup.interactable = false;
             // HINT: You might want to play the inventory closed sound here
+            source.PlayOneShot(closeSound, vol);
             InventoryIsOut = false;
             GameManager.Instance.gameSpeedHandler.UnPauseGameSpeed(gameObject.GetInstanceID());
 
@@ -799,7 +801,7 @@ public class Inventory : MonoBehaviour
     public void ButtonIncrement(int layer)
     {
         // HINT: You may want to play the inventory select sound here
-
+        source.PlayOneShot(scrollSound, vol);
         if (Panel.activeInHierarchy && hasShown)
         {
             if (layer == 0)
@@ -823,6 +825,7 @@ public class Inventory : MonoBehaviour
     public void InversedIncrement(int layer)
     {
         // HINT: You may want to play the inventory select sound here
+        source.PlayOneShot(scrollSound, vol);
         if (Panel.activeInHierarchy && hasShown)
         {
             if (layer == 0)

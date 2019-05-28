@@ -12,6 +12,12 @@ using UnityEngine.Events;
 public delegate void MenuStateEvent(bool state);
 public class Menu : MonoBehaviour
 {
+
+    private AudioSource source;
+    public AudioClip openSound;
+    public AudioClip closeSound;
+    public float vol = 1F;
+
     public static bool isOpen = false;
     public static MenuStateEvent OnMenuStateChange;
 
@@ -23,6 +29,12 @@ public class Menu : MonoBehaviour
     public MenuEvent OnMenuDown;
 
     private bool menuOpen = false;
+
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     public void Update()
     {
@@ -50,6 +62,7 @@ public class Menu : MonoBehaviour
             if (menuOpen)
             {
                 // HINT: Play menu open sound here
+                source.PlayOneShot(openSound, vol);
                 GameManager.Instance.gameSpeedHandler.PauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.BlurCam();
 
@@ -62,6 +75,7 @@ public class Menu : MonoBehaviour
             else
             {
                 // HINT: Play menu close sound here
+                source.PlayOneShot(closeSound, vol);
                 GameManager.Instance.gameSpeedHandler.UnPauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.UnBlurCam();
                 QuestBox.DisableObject(0.25f);

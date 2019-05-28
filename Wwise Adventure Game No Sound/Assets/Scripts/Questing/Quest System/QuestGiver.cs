@@ -13,6 +13,13 @@ namespace QuestSystem
     public delegate void QuestGiverEvent(QuestGiver questGiver);
     public class QuestGiver : InteractableNPC
     {
+
+        private AudioSource source;
+        public AudioClip questline1Sound;
+        public AudioClip questline2Sound;
+        private int currentQuestline = 1;
+        public float vol = 1F;
+
         public static event QuestGiverEvent OnQuestlineForcedChangeStarted;
         public static event QuestGiverEvent OnQuestlineForcedChangeEnded;
         public event QuestGiverEvent OnQuestlineComplete;
@@ -32,6 +39,10 @@ namespace QuestSystem
         private IEnumerator interactionRoutine;
         #endregion
 
+        private void Awake()
+        {
+            source = GetComponent<AudioSource>();
+        }
         private void Start()
         {
             if (StartQuestLineOnStart)
@@ -39,6 +50,7 @@ namespace QuestSystem
                 InitializeQuest(currentQuestIdx);
             }
         }
+
 
         private Coroutine InitializeQuest(int questIdx)
         {
@@ -56,10 +68,18 @@ namespace QuestSystem
             if (OnNewQuest != null)
             {
                 OnNewQuest(currentQuest);
+                Debug.Log("AAAAAAAAAAAAAA");
             }
 
             QuestlineProgressionRTPC = GetNormalizedQuestlineProgress() * 100f;
             // HINT: Questline progression RTPC changed, does this affect to any sound?
+            
+            if (QuestlineProgressionRTPC == 0)
+                currentQuestline = 1;
+            else
+                currentQuestline = 2;
+           
+
             initializingNewQuest = false;
         }
 
@@ -80,18 +100,39 @@ namespace QuestSystem
 
             if(OnQuestCompleted != null)
             {
+                
                 OnQuestCompleted(quest);
             }
+           
 
             currentQuestIdx++;
             if (currentQuestIdx < Quests.Count)
             {
                 // HINT: Questline complete, you may want to play a sound here
+                switch (currentQuestline)
+                {
+                    case 1:
+                        source.PlayOneShot(questline1Sound, vol);
+                        break;
+                    case 2:
+                        source.PlayOneShot(questline2Sound, vol);
+                        break;
+                }
+
                 InitializeQuest(currentQuestIdx);
             }
             else
             {
                 // HINT: Questline complete, you may want to play a sound here
+                switch (currentQuestline)
+                {
+                    case 1:
+                        source.PlayOneShot(questline1Sound, vol);
+                        break;
+                    case 2:
+                        source.PlayOneShot(questline2Sound, vol);
+                        break;
+                }
                 if (OnQuestlineComplete != null)
                 {
                     OnQuestlineComplete(this);
