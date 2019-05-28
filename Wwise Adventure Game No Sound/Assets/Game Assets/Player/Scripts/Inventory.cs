@@ -13,6 +13,13 @@ using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
+
+    public AudioClip openSound;
+    public AudioClip closeSound;
+    public AudioClip scrollSound;
+    public AudioClip selectSound;
+    private AudioSource source;
+
     public Canvas ThisCanvas;
     public CanvasGroup canvasGroup;
 
@@ -72,6 +79,12 @@ public class Inventory : MonoBehaviour
     private Image MarkerImage_Row2;
     private Image MarkerImage_Row3;
     #endregion
+
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void OnDestroy()
     {
@@ -707,6 +720,7 @@ public class Inventory : MonoBehaviour
         {
             canvasGroup.interactable = true;
             // HINT: You might want to play the inventory opened sound here
+            source.PlayOneShot(openSound, 1F);
             InventoryIsOut = true;
             if (EventSystem.current != null)
             {
