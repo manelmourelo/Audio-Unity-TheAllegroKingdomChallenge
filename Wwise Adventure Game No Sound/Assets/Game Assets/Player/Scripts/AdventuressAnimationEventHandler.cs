@@ -181,6 +181,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     {
         PlayerManager.Instance.PickUpEvent();
         // HINT: This is a good place to play the Get item sound and stinger
+
     }
 
     public void WeaponSound()

@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 54410477542360856}
   - component: {fileID: 114705083333322286}
   - component: {fileID: 114368525490971450}
+  - component: {fileID: 82455418549307438}
   m_Layer: 27
   m_Name: Object_Coin_OnGround
   m_TagString: Untagged
@@ -272,6 +273,87 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82455418549307438
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734897770295694}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243514171082075936, guid: 5448d61f56669324aa9986429c89a6be,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114233271374493068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -319,6 +401,7 @@ MonoBehaviour:
   pickupParticles: {fileID: 1894904992786936, guid: 987e140e2b762426d936c5cce95fb93a,
     type: 2}
   DestroyOnPickup: 1
+  pick_up_clip: {fileID: 0}
   pickupAnimationOnInteract: 1
   hoverEffect: 1
   hoverScale: 0.1
@@ -328,14 +411,6 @@ MonoBehaviour:
   InteractionEnabled: 1
   interactionSound: 1
   trigger: {fileID: 0}
-  PickUpEvent:
-    ID: 0
-    valueGuid: 00000000000000000000000000000000
-  PickupType:
-    ID: 0
-    valueGuid: 164fd449abf31949b4d53460ccaad547
-    groupGuid: e2d432e11990704a87be36d11a6106c9
-    groupID: 0
   OnBecameFocus:
     m_PersistentCalls:
       m_Calls:
@@ -402,9 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSpawnSoundAtSpawn: 0
-  spawnSound:
-    ID: 1795559212
-    valueGuid: d1818cc6179d7f4c8356964f200dde92
+  pick_up_clip: {fileID: 8300000, guid: 5e8f1ad0b9cd88c41bcea54714c3f7cf, type: 3}
 --- !u!135 &135932616269717910
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class Pickup : MonoBehaviour, IInteractable
 {
 	public GameObject pickupParticles;
 	public bool DestroyOnPickup = false;
+    public AudioClip pick_up_clip;
 
 	[Header("Animation Properties")]
 	public bool pickupAnimationOnInteract = true;
@@ -186,8 +187,10 @@ public class Pickup : MonoBehaviour, IInteractable
 
 			if (interactionSound)
 			{
-				// HINT: Play the sound for this pickup
-			}
+                // HINT: Play the sound for this pickup
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.PlayOneShot(pick_up_clip, 0.7F);
+            }
 			if (pickupParticles != null)
 			{
 				GameObject p = Instantiate(pickupParticles, transform.position, Quaternion.identity) as GameObject;
