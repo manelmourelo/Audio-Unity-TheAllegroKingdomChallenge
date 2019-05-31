@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114000014054170684}
   - component: {fileID: 114902085818947124}
   - component: {fileID: 208214177362737856}
+  - component: {fileID: 82036118659093206}
   m_Layer: 16
   m_Name: barrel
   m_TagString: Untagged
@@ -118,6 +119,87 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2ef29088231e545b48b25052bc521f25, type: 2}
+--- !u!82 &82036118659093206
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010593849454}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243514171082075936, guid: 5448d61f56669324aa9986429c89a6be,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114000014054170684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +240,12 @@ MonoBehaviour:
   ParentToThisParent: 0
   enableItem: 0
   itemToEnable: {fileID: 0}
+  destroyed_audio: {fileID: 8300000, guid: ea6a086bf132d1e41b8cf9c8442d1796, type: 3}
+  dagger_hit_audio: {fileID: 8300000, guid: 006c030d5715a354d8ab432eac8ae8d5, type: 3}
+  axe_hit_audio: {fileID: 8300000, guid: a8a016530de071147a4f9417718654e8, type: 3}
+  sword_hit_audio: {fileID: 8300000, guid: 1a57b98a05d8f7c4aa55387e6687e20a, type: 3}
+  pickaxe_hit_audio: {fileID: 8300000, guid: 98e3911ff886b874eb37c6f0674bd2b2, type: 3}
+  hammer_hit_audio: {fileID: 8300000, guid: aa41f1e2af16d6c489918c7709b07a70, type: 3}
 --- !u!114 &114902085818947124
 MonoBehaviour:
   m_ObjectHideFlags: 1

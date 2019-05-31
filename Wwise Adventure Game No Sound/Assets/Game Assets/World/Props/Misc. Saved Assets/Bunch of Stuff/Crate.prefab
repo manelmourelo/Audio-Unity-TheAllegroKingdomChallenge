@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114000011691452056}
   - component: {fileID: 114103980643766168}
   - component: {fileID: 208154716967285164}
+  - component: {fileID: 82467398509058766}
   m_Layer: 16
   m_Name: Crate
   m_TagString: Untagged
@@ -115,6 +116,87 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2166293, y: 2.0398743, z: 2.2166295}
   m_Center: {x: 0.0000000014310203, y: 1.0190567, z: -0.000000007592564}
+--- !u!82 &82467398509058766
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013907991098}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243514171082075936, guid: 5448d61f56669324aa9986429c89a6be,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114000011691452056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,12 +237,12 @@ MonoBehaviour:
   ParentToThisParent: 0
   enableItem: 0
   itemToEnable: {fileID: 0}
-  Destruction:
-    valueGuid: bc8c2bf5264aff448b0b1e5d8e73fa20
-    ID: -40843281
-  DestructionLevel:
-    valueGuid: 355b64b033817e4187ac6d3b1d78bb99
-    ID: -2145248604
+  destroyed_audio: {fileID: 8300000, guid: 246210e4ce6088e4a8c09a7bcfa44c9b, type: 3}
+  dagger_hit_audio: {fileID: 8300000, guid: 5842269755d61384faf17fd6e55b585c, type: 3}
+  axe_hit_audio: {fileID: 8300000, guid: 7c794df6392072c4584ee292fa21ef73, type: 3}
+  sword_hit_audio: {fileID: 8300000, guid: 7eaf1e677ad23184ca06efc8c1cf5b50, type: 3}
+  pickaxe_hit_audio: {fileID: 8300000, guid: 1ebb7664d117fb344b2f70a78294d4bb, type: 3}
+  hammer_hit_audio: {fileID: 8300000, guid: 11268963384ce1246b431ebacff2054b, type: 3}
 --- !u!114 &114103980643766168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,11 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d194b927782944d2ca81f0d00674450b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material:
-    valueGuid: a4a532f92ad8e3498cf870e8d2716b9e
-    ID: -1196528254
-    groupGuid: c8ce850565410c458f907f1fc8884a30
-    groupID: -230521123
+  material: 0
 --- !u!208 &208154716967285164
 NavMeshObstacle:
   m_ObjectHideFlags: 1
