@@ -19,6 +19,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     protected PlayerManager() { }
 
+    public static AudioSource player_aud_source;
     public float HealthLevel = 0.0f;
     public float RegenerationLevel = 0.0f;
 

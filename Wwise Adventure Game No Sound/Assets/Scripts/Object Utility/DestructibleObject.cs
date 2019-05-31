@@ -46,6 +46,14 @@ public class DestructibleObject : MonoBehaviour, IDamageable
     private int meshIndex;
     private Rigidbody rb;
 
+    public AudioClip destroyed_audio;
+
+    public AudioClip dagger_hit_audio;
+    public AudioClip axe_hit_audio;
+    public AudioClip sword_hit_audio;
+    public AudioClip pickaxe_hit_audio;
+    public AudioClip hammer_hit_audio;
+
     [System.Serializable]
     public struct CanBeDestroyedBySettings
     {
@@ -103,6 +111,29 @@ public class DestructibleObject : MonoBehaviour, IDamageable
                                 meshFilter.mesh = intermediateMeshes[meshIndex];
                             }
                         }
+
+                        AudioSource audioSource = GetComponent<AudioSource>();
+                        if (PlayerManager.Instance.equippedWeaponInfo.weaponType == WeaponTypes.Axe)
+                        {
+                            audioSource.PlayOneShot(axe_hit_audio, 0.7F);
+                        }
+                        else if (PlayerManager.Instance.equippedWeaponInfo.weaponType == WeaponTypes.Dagger)
+                        {
+                            audioSource.PlayOneShot(dagger_hit_audio, 0.7F);
+                        }
+                        else if (PlayerManager.Instance.equippedWeaponInfo.weaponType == WeaponTypes.Hammer)
+                        {
+                            audioSource.PlayOneShot(hammer_hit_audio, 0.7F);
+                        }
+                        else if (PlayerManager.Instance.equippedWeaponInfo.weaponType == WeaponTypes.PickAxe)
+                        {
+                            audioSource.PlayOneShot(pickaxe_hit_audio, 0.7F);
+                        }
+                        else if (PlayerManager.Instance.equippedWeaponInfo.weaponType == WeaponTypes.Sword)
+                        {
+                            audioSource.PlayOneShot(sword_hit_audio, 0.7F);
+                        }
+
                     }
                     else
                     {
@@ -141,6 +172,7 @@ public class DestructibleObject : MonoBehaviour, IDamageable
                             }
                         }
                         // HINT: Play destruction sound here, you may want to take destruction progress into account
+                        PlayerManager.player_aud_source.PlayOneShot(destroyed_audio, 0.7F);
                         Destroy(gameObject);
                     }
                     break;

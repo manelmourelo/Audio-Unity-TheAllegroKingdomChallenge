@@ -34,6 +34,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
 
     private void Awake()
     {
+        PlayerManager.player_aud_source = transform.GetComponent<AudioSource>();
         GameObject L = GameObject.Find("toe_left");
         GameObject R = GameObject.Find("toe_right");
         if (L != null)
