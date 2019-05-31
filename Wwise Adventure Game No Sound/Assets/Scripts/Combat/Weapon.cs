@@ -47,6 +47,7 @@ public class Weapon : MonoBehaviour, IInteractable
     public bool swingDash;
     public float dashAmount;
     public bool TriggerDamageAllowed = false;
+    public int combo_state = 1;
 
     public UnityEvent OnEquip;
     public UnityEvent OnUnequip;
@@ -167,16 +168,19 @@ public class Weapon : MonoBehaviour, IInteractable
                 {
                     attack.swingType = SwingTypes.Right;
                     // HINT: Weapon combo state 1, you may want to take this into account when playing the weapon swing sound
+                    combo_state = 1;
                 }
                 else if (currentAnimation.IsName("Player_LeftSwing"))
                 {
                     attack.swingType = SwingTypes.Left;
                     // HINT: Weapon combo state 2, you may want to take this into account when playing the weapon swing sound
+                    combo_state = 2;
                 }
                 else if (currentAnimation.IsName("Player_TopSwing"))
                 {
                     attack.swingType = SwingTypes.Top;
                     // HINT: Weapon combo state 3, you may want to take this into account when playing the weapon swing sound
+                    combo_state = 3;
                 }
 
                 if (!alreadyHitObjects.Contains(col.gameObject))
@@ -226,6 +230,7 @@ public class Weapon : MonoBehaviour, IInteractable
                 Attack attack = new Attack(BaseDamage, col.contacts[0].point - PlayerManager.Instance.player.transform.position, BaseDamage);
                 GameManager.DamageObject(col.gameObject, attack);
                 // HINT: Play weapon impact event here, weapon type = transform.parent.gameObject
+                
             }
         }
     }

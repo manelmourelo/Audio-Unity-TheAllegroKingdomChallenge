@@ -12,6 +12,10 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     public AudioClip leftFootStep;
     public AudioClip rightFootStep;
 
+    public AudioClip leftSwing;
+    public AudioClip rightSwing;
+    public AudioClip topSwing;
+
     [Header("Object Links")]
     [SerializeField]
     private Animator playerAnimator;
@@ -145,6 +149,19 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
         Weapon W = PlayerManager.Instance.equippedWeaponInfo;
         // HINT: PlayerManager.Instance.weaponSlot contains the selected weapon;
         // HINT: This is a good place to play the weapon swing sounds
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (W.combo_state == 1)
+        {
+            audioSource.PlayOneShot(rightSwing, 0.7F);
+        }
+        else if(W.combo_state == 2)
+        {
+            audioSource.PlayOneShot(leftSwing, 0.7F);
+        }
+        else if(W.combo_state == 3)
+        {
+            audioSource.PlayOneShot(topSwing, 0.7F);
+        }
     }
 
     public void PauseMovement()
