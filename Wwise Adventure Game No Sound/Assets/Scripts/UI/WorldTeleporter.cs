@@ -13,6 +13,7 @@ using System.Linq;
 
 public class WorldTeleporter : MonoBehaviour
 {
+    public AudioClip teleport_clip;
     //TODO: Custom inspector with EditorGUI.HelpBox("Tag all teleport destinations with the tag 'TeleportDestination'");
     private TeleportDestination[] destinations;
 
@@ -76,6 +77,7 @@ public class WorldTeleporter : MonoBehaviour
         {
             PlayerManager.Instance.player.transform.position = destinations[dropdown.value - 1].transform.position;
             // HINT: You may want to play the teleport sound effect here
+            PlayerManager.player_aud_source.PlayOneShot(teleport_clip, 0.7f);
             dropdown.value = 0;
             dropdown.captionText.text = LanguageManager.GetText("menu_teleport");
 
