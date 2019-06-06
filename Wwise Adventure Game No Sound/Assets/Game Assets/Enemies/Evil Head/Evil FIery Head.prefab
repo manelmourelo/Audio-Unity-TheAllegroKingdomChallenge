@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 114012244305546008}
   - component: {fileID: 195758645432092440}
   - component: {fileID: 114602928975211742}
+  - component: {fileID: 82552997324637034}
   m_Layer: 8
   m_Name: Evil FIery Head
   m_TagString: Enemy
@@ -453,6 +454,87 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82552997324637034
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695185001138216}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243514171082075936, guid: 5448d61f56669324aa9986429c89a6be,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95002272391772672
 Animator:
   serializedVersion: 3
@@ -643,12 +725,6 @@ MonoBehaviour:
   StunParticles: {fileID: 0}
   Debugging:
     RaycastVisionRange: 0
-  HurtSound:
-    ID: -295775046
-    valueGuid: 87db883f1bf7eb468b792ded365c9f81
-  DeathSound:
-    ID: -2011609543
-    valueGuid: 911074335445424db0f5afb0fad96326
   isAlive: 1
   startPosition: {x: 0, y: 0, z: 0}
   daytime: 0
@@ -656,24 +732,11 @@ MonoBehaviour:
   SmokeFX: {fileID: 1254699256554850}
   deathFX: {fileID: 1769418892780840, guid: 7d9a163e391684645860ad0bbd5d23ed, type: 2}
   keepOnDeath: {fileID: 1254699256554850}
-  MovementRTPC:
-    ID: -1248380245
-    valueGuid: 4d214df4a0c5064e94960ee007d8e469
-  HoverSoundStart:
-    ID: -1034892178
-    valueGuid: a5812328861871439e7958379c8bcdf2
-  HoverSoundEnd:
-    ID: -33353136
-    valueGuid: 4cc3a0944514ef40868d0b1302a7b56a
-  BiteSound:
-    ID: -1536709161
-    valueGuid: 94c18185a14b66488172bdf1395b15a8
-  ChargeSound:
-    ID: -1954775555
-    valueGuid: e0b9ae9eaf3b654d98a56da75faa8548
-  TelegraphSound:
-    ID: -257061657
-    valueGuid: c7205c7d4b7d2c4bbfa4e4e0082a7c5c
+  bite: {fileID: 8300000, guid: d21c92e3ebc07744392b2ccfe2940254, type: 3}
+  hover: {fileID: 8300000, guid: 8f9fd7cdeef08d4408de4caa34dde12b, type: 3}
+  charge: {fileID: 8300000, guid: 60086b1e3c6e4944a893ed54b84e7f7f, type: 3}
+  attack: {fileID: 8300000, guid: dc7bd3003551dfb449fc97b37bb4c773, type: 3}
+  MovementRTPC: NaN
 --- !u!114 &114015750651092398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,29 +783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbb0657c59a4f78a7d975cb1e30519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponImpact:
-    ID: -599624381
-    valueGuid: 0b954917b0d5c64094306f0d4f7a516e
-  WeaponTypeSwitch:
-    ID: 0
-    valueGuid: 11d9b832b4d52347a136a2a320daa466
-    groupGuid: c8ce850565410c458f907f1fc8884a30
-    groupID: 0
-  WeaponCombo1:
-    ID: 0
-    valueGuid: 00000000000000000000000000000000
-    groupGuid: 00000000000000000000000000000000
-    groupID: 0
-  WeaponCombo2:
-    ID: 0
-    valueGuid: 00000000000000000000000000000000
-    groupGuid: 00000000000000000000000000000000
-    groupID: 0
-  WeaponCombo3:
-    ID: 0
-    valueGuid: 00000000000000000000000000000000
-    groupGuid: 00000000000000000000000000000000
-    groupID: 0
   weaponType: 1
   weaponAnimationType: 0
   equipped: 0
@@ -762,6 +802,7 @@ MonoBehaviour:
   swingDash: 0
   dashAmount: 0
   TriggerDamageAllowed: 1
+  combo_state: 1
   OnEquip:
     m_PersistentCalls:
       m_Calls: []
@@ -805,11 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d194b927782944d2ca81f0d00674450b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material:
-    ID: 1216965916
-    valueGuid: d5bb20b355a0b146b459ce4924b0299e
-    groupGuid: c8ce850565410c458f907f1fc8884a30
-    groupID: -230521123
+  material: 0
 --- !u!114 &114602928975211742
 MonoBehaviour:
   m_ObjectHideFlags: 1

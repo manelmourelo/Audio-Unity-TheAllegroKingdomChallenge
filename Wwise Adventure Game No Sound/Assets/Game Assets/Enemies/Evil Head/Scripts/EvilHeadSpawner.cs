@@ -18,6 +18,8 @@ public class EvilHeadSpawner : MonoBehaviour
     public bool SpawnInifitely = false;
     private float SpawnInterval = 15f;
 
+    public AudioClip audio_clip = null;
+
 	private GameObject EH = null;
 
 	void OnEnable()
@@ -83,6 +85,8 @@ public class EvilHeadSpawner : MonoBehaviour
             GameObject destructionParticles = (Instantiate(DestructionParticles, transform.position, Quaternion.identity)) as GameObject;
             Destroy(destructionParticles, 5f);
             // HINT: This is a good place to play the destruction sound
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audio_clip, 0.7F);
             Destroy(this.gameObject);
         }
     }
@@ -92,6 +96,8 @@ public class EvilHeadSpawner : MonoBehaviour
 		if (EH)
 		{
             // HINT: Stop sound
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Stop();
         }
     }
 }

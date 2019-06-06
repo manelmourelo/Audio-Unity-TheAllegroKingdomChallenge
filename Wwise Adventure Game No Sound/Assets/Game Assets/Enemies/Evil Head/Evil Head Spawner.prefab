@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 135000012270933610}
   - component: {fileID: 114000010271614470}
   - component: {fileID: 135968833581692518}
+  - component: {fileID: 82918857489871514}
   m_Layer: 8
   m_Name: Evil Head Spawner
   m_TagString: Untagged
@@ -362,6 +363,87 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012775345776}
   m_Mesh: {fileID: 4300000, guid: 799924ecd5b3245139e8ef8066faeeef, type: 2}
+--- !u!82 &82918857489871514
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011586303918}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243514171082075936, guid: 5448d61f56669324aa9986429c89a6be,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!111 &111000012279881644
 Animation:
   m_ObjectHideFlags: 1
@@ -391,11 +473,9 @@ MonoBehaviour:
   SpawnOffset: {x: 0, y: 0, z: 0}
   DestructionParticles: {fileID: 1000013695612154, guid: 732782aa004334030bd34df9d3064e9d,
     type: 2}
-  DestructionSound:
-    ID: 1880981927
-    valueGuid: bd1753e7e339f54b88b843663586d277
   SpawnOnAwake: 0
   SpawnInifitely: 1
+  audio_clip: {fileID: 8300000, guid: ff374f71a1ebe474398eb88643627ebc, type: 3}
 --- !u!135 &135000012270933610
 SphereCollider:
   m_ObjectHideFlags: 1
