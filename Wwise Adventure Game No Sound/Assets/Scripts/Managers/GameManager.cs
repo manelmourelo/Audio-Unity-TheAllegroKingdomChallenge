@@ -229,7 +229,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (CurrentZones.Count > 0)
         {
-            //CurrentZones[0].MusicState.SetValue();
+            GetComponent<AudioZoneManager>().PlayZoneAudio(CurrentZones[0].musicState);
+            //CurrentZones[0].SetValue(CurrentZones[0])
             // HINT: Place to update game music according to region and daylight variables
         }
         else
