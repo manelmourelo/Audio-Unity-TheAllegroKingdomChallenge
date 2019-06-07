@@ -24,6 +24,10 @@ public class WwizardAI : Creature
     public NavMeshAgent navMeshAgent;
     public NavMeshObstacle navMeshObstacle;
 
+    [Header("Audios:")]
+    public AudioClip poof = null;
+    public AudioClip staff = null;
+
     #region private variables
     //Cached animator hashes
     private readonly int questChargeHash = Animator.StringToHash("Quest_Charge");
@@ -57,6 +61,8 @@ public class WwizardAI : Creature
         {
             GameObject p = Instantiate(Gimmick1PoofParticles, Gimmick1PoofTransform.transform.position + Gimmick1Displacement, Quaternion.identity) as GameObject;
             // HINT: You might want to play the Poof gimmick sound here
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.PlayOneShot(poof, 0.7F);
             Destroy(p, 5f);
         }
     }
@@ -96,6 +102,8 @@ public class WwizardAI : Creature
     {
         matChecker.CheckMaterial(gameObject);
         // HINT: You might want to play the staff ground hit here
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(staff, 0.7F);
     }
 }
 

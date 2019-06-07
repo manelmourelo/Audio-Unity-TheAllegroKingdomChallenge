@@ -230,9 +230,10 @@ public class Weapon : MonoBehaviour, IInteractable
                 Attack attack = new Attack(BaseDamage, col.contacts[0].point - PlayerManager.Instance.player.transform.position, BaseDamage);
                 GameManager.DamageObject(col.gameObject, attack);
                 // HINT: Play weapon impact event here, weapon type = transform.parent.gameObject
-                
-                
-                
+                //weapon type = transform.parent.gameObject
+
+
+
             }
         }
     }

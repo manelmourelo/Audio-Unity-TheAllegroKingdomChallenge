@@ -19,6 +19,10 @@ public class EvilSpitPlantProjectile : MonoBehaviour
     public float duration = 3;
     public float damage = 40f;
 
+    [Header("Audios:")]
+    public AudioClip hit = null;
+    public AudioClip miss = null;
+
     public bool ignoreCollisionWithWwizard = false;
 
     [HideInInspector]
@@ -48,6 +52,7 @@ public class EvilSpitPlantProjectile : MonoBehaviour
     IEnumerator MoveSpitBullet()
     {
         // HINT: Spit bullet started moving, you might want to start playing its continuous sound here
+
         while (time < duration)
         {
             rb.velocity = transform.forward * speed;
@@ -131,10 +136,14 @@ public class EvilSpitPlantProjectile : MonoBehaviour
             if (hitSomething)
             {
                 // HINT: Explosion did hit something, you may want to play the explosion hit sound here
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.PlayOneShot(hit, 0.7F);
             }
             else
             {
                 // HINT: Explosion didn't hit something, you may want to play the explosion miss sound here
+                AudioSource audioSource = GetComponent<AudioSource>();
+                audioSource.PlayOneShot(miss, 0.7F);
             }
 
             Destroy(go, 5f);
