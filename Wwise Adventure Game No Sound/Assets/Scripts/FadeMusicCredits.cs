@@ -5,7 +5,11 @@ using UnityEngine;
 public class FadeMusicCredits : MonoBehaviour {
 
     private AudioSource source;
-    public float fade_decrement = 0.3f;
+    private float fade_decrement = 0.0f;
+
+    public float fade_decrement_end = 1.2f;
+    public float fade_decrement_esc = 0.8f;
+
     private float fade_time = 1.0f / 20.0f;
 
     private float credits_duration_timer = 0.0f;
@@ -22,12 +26,16 @@ public class FadeMusicCredits : MonoBehaviour {
         credits_duration_timer += Time.deltaTime;
         if(credits_duration_timer >= credits_duration_sec)
         {
+            fade_decrement = fade_decrement_end;
             StartCoroutine("FadeOut");
             credits_duration_timer = 0.0f;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            fade_decrement = fade_decrement_esc;
             StartCoroutine("FadeOut");
+        }
 
 
     }
