@@ -880,6 +880,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
+  axe_hit_audio: {fileID: 8300000, guid: eae855d8a9bc6c640ad79adf94ec7868, type: 3}
+  dagger_hit_audio: {fileID: 8300000, guid: 67d122976eb81184d8070399933d05d2, type: 3}
+  hammer_hit_audio: {fileID: 8300000, guid: d7f19d247a107e44fb4cc42683915cde, type: 3}
+  pickaxe_hit_audio: {fileID: 8300000, guid: d7f19d247a107e44fb4cc42683915cde, type: 3}
+  sword_hit_audio: {fileID: 8300000, guid: d7f19d247a107e44fb4cc42683915cde, type: 3}
 --- !u!119 &119084819791877666
 Projector:
   m_ObjectHideFlags: 1
